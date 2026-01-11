@@ -4,15 +4,20 @@
 <meta charset="UTF-8">
 <title>Random Link</title>
 <script>
-const links = [
-  "https://www.b4-umeda.com/shop/blog2/detail/id/2286763",
-  "https://www.b4-umeda.com/shop/blog2/detail/id/2286746",
-  "https://www.b4-umeda.com/shop/blog2/detail/id/2286676",
-  "https://www.b4-umeda.com/shop/blog2/detail/id/2286674",
-  "https://www.b4-umeda.com/shop/blog2/detail/id/2286661",
-  "https://www.b4-umeda.com/shop/blog2/detail/id/2286784"
+ { url: "https://www.b4-umeda.com/shop/blog2/detail/id/2286763", weight: 20 },
+  { url: "https://www.b4-umeda.com/shop/blog2/detail/id/2286746", weight: 2 },
+  { url: "https://www.b4-umeda.com/shop/blog2/detail/id/2286676", weight: 30 },
+  { url: "https://www.b4-umeda.com/shop/blog2/detail/id/2286674", weight: 40 },
+  { url: "https://www.b4-umeda.com/shop/blog2/detail/id/2286661", weight: 40 },
+  { url: "https://www.b4-umeda.com/shop/blog2/detail/id/2286784", weight: 50 }
 ];
-location.href = links[Math.floor(Math.random() * links.length)];
+
+const pool = [];
+links.forEach(l => {
+  for (let i = 0; i < l.weight; i++) pool.push(l.url);
+});
+
+location.href = pool[Math.floor(Math.random() * pool.length)];
 </script>
 </head>
 <body></body>
